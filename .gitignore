@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Data (카드 DB / 크로마 / 업로드)
+data/
+chroma-data/
+uploads/
+*.csv
+*.xlsx
+*.json
+
+# Jupyter
+.ipynb_checkpoints/
