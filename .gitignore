@@ -1,28 +1,56 @@
+# =========================
 # Python
+# =========================
 __pycache__/
-*.pyc
-*.pyo
+*.py[cod]
 *.pyd
+*.so
 .venv/
 venv/
 .env
 .env.*
 *.log
 
-# OS
+# =========================
+# OS / Editor
+# =========================
 .DS_Store
 Thumbs.db
+.vscode/
+.idea/
 
+# =========================
 # Streamlit
+# =========================
 .streamlit/secrets.toml
 
-# Data (카드 DB / 크로마 / 업로드)
-data/
-chroma-data/
-uploads/
-*.csv
-*.xlsx
-*.json
-
+# =========================
 # Jupyter
+# =========================
 .ipynb_checkpoints/
+
+# =========================
+# Runtime / local artifacts
+# =========================
+uploads/
+chroma-data/
+*.sqlite3
+
+# =========================
+# Data: keep folder structure only
+# - data 아래 모든 파일은 무시
+# - 단, 폴더 유지를 위한 .gitkeep만 추적
+# =========================
+data/**
+!data/**/.gitkeep
+
+# (추가 안전장치) 너가 말한 2개 유형은 확실히 차단
+data/cache/*.json
+data/cards/*.csv
+
+# =========================
+# (선택) Cache / build artifacts
+# =========================
+*.tmp
+*.bak
+*.swp
