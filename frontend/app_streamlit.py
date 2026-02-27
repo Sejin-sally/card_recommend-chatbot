@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+import os
 import uuid
 import traceback
 from typing import Dict, List
@@ -21,7 +22,7 @@ if "chat_messages" not in st.session_state:
 
 with st.sidebar:
     st.header("연결 설정")
-    api_base_url = st.text_input("API Base URL", value="http://127.0.0.1:8000")
+    api_base_url = st.text_input("API Base URL", value=os.getenv("BACKEND_URL", "http://127.0.0.1:8000"))
     timeout_s = st.slider("Timeout (sec)", 5, 120, 120, 5)
     show_debug = st.checkbox("디버그 보기", value=False)
 
@@ -80,3 +81,4 @@ if prompt:
         st.markdown(answer)
 
     st.session_state["chat_messages"].append({"role": "assistant", "content": answer})
+

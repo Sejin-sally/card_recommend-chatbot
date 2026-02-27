@@ -1,8 +1,8 @@
 services:
   backend:
     build:
-      context: .
-      dockerfile: Dockerfile.backend
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: card-reco-backend
     command: uvicorn src.api:app --host 0.0.0.0 --port 8000
     ports:
@@ -20,8 +20,8 @@ services:
 
   frontend:
     build:
-      context: .
-      dockerfile: Dockerfile.frontend
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: card-reco-frontend
     command: streamlit run app_streamlit.py --server.address 0.0.0.0 --server.port 8501
     ports:
@@ -31,6 +31,7 @@ services:
       NAVER_CLIENT_ID: ${NAVER_CLIENT_ID:-}
       NAVER_CLIENT_SECRET: ${NAVER_CLIENT_SECRET:-}
       TAVILY_API_KEY: ${TAVILY_API_KEY:-}
+      BACKEND_URL: http://backend:8000
     volumes:
       - ./data:/app/data:ro
     depends_on:
